@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Expantion Page!</title>
+  <script src="https://unpkg.com/vue"></script>
+
+  <button
+    <li><a href="website.html">Home</a></li>
+      >
+
+  <style>
+    body {
+        background: #A5A2A1;
+    }
+
+  </style>
+</head>
+<body>
+
+  <div id="app">
+      <p>Your Todo List:</p>
+      <ul>
+          <li
+            v-for="item in items"
+            :key="item.itemId"
+        >
+
+
+
+
+            <span v-bind:style="{color: item.itemcolor}">
+              {{ item.title }}
+
+            </span>
+            <button @click="removeItem(item.itemId)">Thanks!</button>
+
+          </li>
+      </ul>
+      <p>What would you like to see next?</p>
+      <input type="text" v-model="newItemTitle"/>
+
+      <button @click="addItem">Add to To Do List.</button>
+
+  </div>
+
+  <script>
+    var app = new Vue({
+      el: '#app',
+      data: {
+        items: [
+
+        ],
+        newItemTitle: '',
+
+        latestItemId: 1,
+      },
+      methods: {
+        addItem: function () {
+          this.items.push({
+            itemId: this.latestItemId += 1,
+            title: this.newItemTitle,
+            itemcolor: 'green',
+          })
+          this.lastestItemId += 1
+          this.newItemTitle = ""
+        },
+        removeItem: function (itemId) {
+          this.items = this.items.filter((item) => { return item.itemId !== itemId })
+
+        }
+      }
+    })
+  </script>
+</body>
+</html>
